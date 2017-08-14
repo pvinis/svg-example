@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG example</title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+
+        h2 span {
+            font-family: monospace;
+        }
+
+        figure {
+            margin: 15px 0;
+            background-color: #eeeeee;
+        }
+
+        figure:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        figure div:first-child {
+            float: left;
+            width: 50%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        figure div:last-child {
+            float: right;
+            width: 50%;
+        }
+
+        figure pre code {
+            padding: 10px;
+        }
+
+        figure p {
+            font-family: monospace;
+            font-size: 1.5em;
+            padding: 10px;
+            margin: 0;
+        }
+
+        span#sample {
+            background-image: url(freesample.svg);
+            background-size: contain;
+            width: 354px;
+            height: 294px;
+            display: inline-block;
+        }
+
+        svg#sample2 {
+            width: 354px;
+            height: 294px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SVG examples</h1>
+    <h2><span>&lt;img&gt;</span> tag</h2>
+    <p>Just as you would with any other image.</p>
+    <figure>
+        <div><img src="freesample.svg" width="354" height="294"></div>
+        <div>
+            <pre><code>&lt;img src="freesample.svg" width="354" height="294"&gt;</code></pre>
+        </div>
+    </figure>
+    <h2>CSS <span>background-image</span></h2>
+    <p>It's best not to base64 encode them as it this will block the loading of the rest of the styles while it downloads.</p>
+    <figure>
+        <div><span id="sample"></span></div>
+        <div>
+            <p>HTML</p>
+            <pre><code>&lt;span id="sample"&gt;</code></pre>
+            <p>CSS</p>
+            <pre><code>#sample {
+    background-image: url(freesample.svg);
+    background-size: contain;
+    width: 354px;
+    height: 294px;
+    display: inline-block;
+ }
+            </code></pre>
+        </div>
+    </figure>
+    <h2><span>&lt;svg&gt;</span> tag</h2>
+    <p>This can be used to embed an SVG fragment inside the current document. It has its own viewport and coordinate system.</p>
+    <figure>
+        <div><svg id="sample2" aria-hidden="true"><use href="symbols.svg#sample"></use></svg></div>
+        <div>
+            <p>HTML</p>
+            <pre><code>&lt;svg id="sample2" aria-hidden="true"&gt;&lt;use href="symbols.svg#sample"&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+            <p>SVG</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;symbol id="sample" viewBox="0 0 472 392"&gt;
+        &lt;path...
+    &lt;/symbol&gt;
+&lt;/svg&gt;</code></pre>
+        </div>
+    </figure>
+</body>
+
+</html>
